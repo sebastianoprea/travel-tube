@@ -2,26 +2,9 @@
 The REST APIs provide programmatic access to read and write Travel Tube data. 
 <br>
 <h3> Videos </h3>
-<style>
-	.demo {
-		border:1px solid #C0C0C0;
-		border-collapse:collapse;
-		padding:5px;
-	}
-	.demo th {
-		border:1px solid #C0C0C0;
-		padding:5px;
-		background:#F0F0F0;
-	}
-	.demo td {
-		border:1px solid #C0C0C0;
-		text-align:left;
-		padding:5px;
-	}
-</style>
 
 <table class="demo">
-	<caption>&nbsp;&nbsp;&nbsp;&nbsp;Overview of videos api </caption>
+	<caption>Overview of videos api </caption>
 	<thead>
 	<tr>
 		<th>URL<br></th>
