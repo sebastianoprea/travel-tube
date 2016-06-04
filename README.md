@@ -1,6 +1,5 @@
 # travel-tube-api
 The REST APIs provide programmatic access to read and write Travel Tube data. 
-<br>
 <h3> Videos </h3>
 
 <table class="demo">
