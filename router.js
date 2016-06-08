@@ -1,12 +1,7 @@
-const VideoController = require('./controllers/video');
+const VideoRouter = require('./routers/video');
 
 module.exports = function(app) {
-
-  app.post('/videos', VideoController.createVideo);
-  app.get('/videos', VideoController.fetchVideos);
-  app.get('/videos/:id', VideoController.fetchVideo);
-  app.put('/videos/:id', VideoController.editVideo);
-
+  app.use('/videos', VideoRouter);
   app.use(function(req, res){
     res.send(404);
   });
