@@ -20,9 +20,11 @@ exports.createVideo = function(req, res, next) {
     res.json({ video: (video) });
   });
 }
+
+
 exports.fetchVideos = function(req, res, next) {
   Video.find({}, function(err, videos) {
-    res.json({ videos: (videos) });
+    res.json((videos));
   });
 }
 exports.fetchVideo = function(req, res, next) {
