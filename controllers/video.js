@@ -18,10 +18,35 @@ exports.createVideo = function(req, res, next) {
     res.json({ video: (video) });
   });
 }
-exports.fetchVideos = function(req, res, next) {
+
+
+function fetchAllVideos(next) {
   Video.find({}, function(err, videos) {
-    res.json((videos));
+    next(videos);
   });
+}
+
+function searchVideos(searchParam, next)  {
+  Video.find(
+        { $text : { $search : searchParam } },
+        { score : { $meta: "textScore" } }
+    ).sort({ score : { $meta : 'textScore' } })
+    .exec(function(err, videos) {
+        next(videos);
+    });
+}
+
+exports.fetchVideos = function(req, res, next) {
+  if (req.query["search"]) {
+    searchVideos(req.query["search"], function(videos) {
+      res.json(videos);
+    });
+  }
+  else {
+    fetchAllVideos(function(videos) {
+      res.json(videos);
+    });
+  }
 }
 exports.fetchVideo = function(req, res, next) {
   Video.find({'_id': req.params.id}, function(err, video) {

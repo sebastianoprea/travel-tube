@@ -14,6 +14,7 @@ const videoSchema = new Schema({
   thumbnail: {type: String}
 
 });
+videoSchema.index({ title: 'text', description: 'text', tags: 'text'}, { name: "best_match_index", weights: { title: 30, description:2, tags:1} });
 
 const ModelClass = mongoose.model('videos', videoSchema);
 module.exports = ModelClass;
