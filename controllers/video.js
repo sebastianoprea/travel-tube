@@ -1,7 +1,5 @@
 const Video = require('../models/video');
-
 exports.createVideo = function(req, res, next) {
-
   const video = new Video ({
     title: req.body.title,
     description: req.body.description,
@@ -10,7 +8,7 @@ exports.createVideo = function(req, res, next) {
     tags: req.body.tags,
     created: new Date(),
     modified: new Date(),
-    thumbnails: req.body.thumbnails,
+    thumbnail: req.body.thumbnail,
     videoUrl: req.body.videoUrl
   });
   video.save(function(err) {
@@ -20,8 +18,6 @@ exports.createVideo = function(req, res, next) {
     res.json({ video: (video) });
   });
 }
-
-
 exports.fetchVideos = function(req, res, next) {
   Video.find({}, function(err, videos) {
     res.json((videos));

@@ -11,7 +11,7 @@ const videoSchema = new Schema({
   locationY: {type: String},
   tags: {type: Array },
   videoUrl: {type: String},
-  thumbnails: {type: Array}
+  thumbnail: {type: String}
 
 });
 
