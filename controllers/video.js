@@ -1,5 +1,5 @@
 const Video = require('../models/video');
-const ApiKey = require('../.gitignore');
+const ApiKey = require('../apikeys');
 
 function getVideoLocation(searchParam, next) {
   var request = require("request");
@@ -13,10 +13,7 @@ function getVideoLocation(searchParam, next) {
        next(body.results[0]);
      }
   });
-
-
 }
-
 exports.createVideo = function(req, res, next) {
   getVideoLocation(req.body.location, function(locationData) {
     const video = new Video ({
@@ -39,14 +36,11 @@ exports.createVideo = function(req, res, next) {
     });
   });
 }
-
-
 function fetchAllVideos(next) {
   Video.find({}, function(err, videos) {
     next(videos);
   });
 }
-
 function searchVideos(searchParam, next)  {
   Video.find(
         { $text : { $search : searchParam } },
@@ -57,7 +51,6 @@ function searchVideos(searchParam, next)  {
     });
 
 }
-
 exports.fetchVideos = function(req, res, next) {
   if (req.query["search"]) {
     searchVideos(req.query["search"], function(videos) {
