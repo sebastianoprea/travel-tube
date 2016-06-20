@@ -7,8 +7,9 @@ const videoSchema = new Schema({
   modified: {type: Date },
   title: {type: String},
   description: {type: String },
-  locationX: {type: String},
-  locationY: {type: String},
+  locationX: {type: Number},
+  locationY: {type: Number},
+  location: {type: String},
   tags: {type: Array },
   videoUrl: {type: String},
   thumbnail: {type: String}
