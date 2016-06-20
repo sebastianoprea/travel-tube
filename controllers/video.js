@@ -87,7 +87,7 @@ exports.fetchVideos = function(req, res, next) {
   }
 }
 exports.fetchVideo = function(req, res, next) {
-  Video.find({'_id': req.params.id}, function(err, video) {
+  Video.findOne({'_id': req.params.id}, function(err, video) {
     res.json(video);
   });
 }
